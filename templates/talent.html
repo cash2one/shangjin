@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block css %}
+    <link href="{% static 'css/join.css' %}" type="text/css" rel="stylesheet">
+{% endblock %}
+
+{% block join_nav %} style="color: grey;" {% endblock %}
+
+{% block content %}
+    <div class="banner_img">
+        <img src="{% static 'img/f6e79d9850.png' %}">
+    </div>
+    <div class="content">
+        <div class="news_content">
+            <div class="left_content">
+                <div class="menu" style="">
+                    <div class="menu_title">
+                        <p class="menu_title_eng">JOIN</p>
+                        <p>加入上锦</p>
+                    </div>
+                    <div class="menu_list">
+                        <ul>
+                            <li><a href="{% url 'talent_concept' %}" class="menu_li active">人才理念</a></li>
+                            <li><a href="{% url 'join_us' %}" class="menu_li">招聘信息</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="right_content">
+                <div class="Rtitle_noBorder">
+                    <div>人才理念</div>
+                    <div class="bread"><a href="{% url 'index_view' %}">首页</a> > <a href="{% url 'talent_concept' %}">加入上锦</a> > 人才理念</div>
+                </div>
+                <div class="talent_concept">
+                    <p>任人唯贤 唯才是用</p>
+                    <p class="concept"><img src="{% static 'img/concept1.jpg' %}"></p>
+                    <p class="talent"><img src="{% static 'img/talent.png' %}"></p>
+                </div>
+
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+
+

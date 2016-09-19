@@ -1,0 +1,90 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block css %}
+    <link href="{% static 'css/project.css' %}" type="text/css" rel="stylesheet">
+{% endblock %}
+
+{% block project_nav %} class='banner-top-at' {% endblock %}
+
+{% block content %}
+    <div class="banner_img">
+        <img src="{% static 'img/sjcy.png' %}">
+    </div>
+    <div class="content">
+        <div class="project_content">
+            <div class="left_content">
+                <div class="menu" style="">
+                    <div class="menu_title">
+                        <p class="menu_title_eng">PROJECT</p>
+                        <p>上锦出品</p>
+                    </div>
+                    <div class="menu_list">
+                        <ul>
+                            <li id="s_7258"><a href="{% url 'project_list' %}" class="menu_li MFon">上锦出品</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="right_content">
+                <div class="Rtitle_noBorder">
+                    <div>上锦出品</div>
+                    <div class="bread"><a href="{% url 'index_view' %}">首页</a> > 上锦出品</div>
+                </div>
+                <div class="project_list">
+                    <ul>
+                        {% for obj in page_obj.object_list %}
+                        <li class="project_item">
+                            <div class="cp_li_img">
+                                <a href="{% url 'project_detail' obj.id %}"><img src="{{ obj.show_img.url }}"></a>
+                            </div>
+                            <div class="cp_li_con">
+                                <p class="cp_li_dt">{{obj.name}}</p>
+                                <p class="cp_li_tl">所在城市: <span class="cp_li_tt">{{obj.city}}</span></p>
+                                <p class="cp_li_tl" style="height: auto">项目地址: <span class="cp_li_tt">{{obj.address}}</span></p>
+                                <p class="cp_li_tl">联系电话: <span class="cp_li_tt">{{obj.phone}}</span></p>
+                                <p class="cp_li_more"><a href="{% url 'project_detail' obj.id %}">查看详情</a></p>
+                            </div>
+                        </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+
+                <div class="btn">
+                    <ul class="pagination">
+                        <li>
+                            <a class="paginator-previous" href="
+                                {% if page_obj.has_previous %}
+                                    {% url 'project_list_page' page_obj.previous_page_number %}
+                                {% else %}
+                                    javascript:;
+                                {% endif %}
+                            "><<</a>
+                        </li>
+                        {% for obj in page_obj.range_list %}
+                            <li>
+                            {% if obj == page_obj.number %}
+                                <a href="javascript:;" class="active">{{ obj }}</a>
+                            {% else %}
+                                <a href="{% url 'project_list_page' obj %}">{{ obj }}</a>
+                            {% endif %}</li>
+                        {% endfor %}
+                        <li>
+                            <a href="
+                                {% if page_obj.has_next %}
+                                    {% url 'project_list_page' page_obj.next_page_number %}
+                                {% else %}
+                                    javascript:;
+                                {% endif %}
+                            ">>></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+
+

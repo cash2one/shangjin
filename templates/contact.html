@@ -1,0 +1,136 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block css %}
+    <link href="{% static 'css/contact.css' %}" type="text/css" rel="stylesheet">
+{% endblock %}
+
+{% block js %}
+    <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=RihjM127pMYRxtrwONEk8bSrkeyKAKG3"></script>
+{% endblock %}
+
+{% block contact_nav %} class='banner-top-at' {% endblock %}
+
+{% block content %}
+    <div class="banner_img">
+        <img src="{% static 'img/contact.jpg' %}">
+    </div>
+    <div class="content">
+        <div class="news_content">
+            <div class="left_content">
+                <div class="menu" style="">
+                    <div class="menu_title">
+                        <p class="menu_title_eng">CONTACT</p>
+                        <p>联系我们</p>
+                    </div>
+                    <div class="menu_list">
+                        <ul>
+                            <li><a href="{% url 'contact_us' %}" class="menu_li active">联系我们</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="right_content">
+                <div class="Rtitle_noBorder">
+                    <div>联系我们</div>
+                    <div class="bread"><a href="{% url 'index_view' %}">首页</a> > 联系我们</div>
+                </div>
+                <div class="contact_us">
+                    <p>联系电话：<span>021-42342342</span></p>
+                    <p>邮编：<span>201600</span></p>
+                    <p>公司地址：<span>上海市松江区广富林路1188弄33号1楼</span></p>
+                    <p style="width: 75px;float:left;">在线联系：</p><div style="display: block; margin-top: 6px"><a target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=2991178502&site=qq&menu=yes">
+                        <img border="0" src="http://wpa.qq.com/pa?p=2:2991178502:51"
+                             alt="点击这里给我发消息" title="点击这里给我发消息"/></a></div>
+                    <!--百度地图容器-->
+                    <div style="width:650px;height:420px;border:#ccc solid 1px;font-size:12px" id="map"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block last %}
+    <script type="text/javascript">
+        //创建和初始化地图函数：
+        function initMap() {
+            createMap();//创建地图
+            setMapEvent();//设置地图事件
+            addMapControl();//向地图添加控件
+            addMapOverlay();//向地图添加覆盖物
+        }
+        function createMap() {
+            map = new BMap.Map("map");
+            map.centerAndZoom(new BMap.Point(121.236201, 31.061425), 15);
+        }
+        function setMapEvent() {
+            map.enableScrollWheelZoom();
+            map.enableKeyboard();
+            map.enableDragging();
+            map.enableDoubleClickZoom()
+        }
+        function addClickHandler(target, window) {
+            target.addEventListener("click", function () {
+                target.openInfoWindow(window);
+            });
+        }
+        function addMapOverlay() {
+            var markers = [
+                {
+                    content: "上海市松江区广富林路1188弄33号",
+                    title: "上海上锦资产管理有限公司",
+                    imageOffset: {width: -46, height: -21},
+                    position: {lat: 31.064642, lng: 121.240297}
+                },
+            ];
+            for (var index = 0; index < markers.length; index++) {
+                var point = new BMap.Point(markers[index].position.lng, markers[index].position.lat);
+                var marker = new BMap.Marker(point, {
+                    icon: new BMap.Icon("http://api.map.baidu.com/lbsapi/createmap/images/icon.png", new BMap.Size(20, 25), {
+                        imageOffset: new BMap.Size(markers[index].imageOffset.width, markers[index].imageOffset.height)
+                    })
+                });
+                var label = new BMap.Label(markers[index].title, {offset: new BMap.Size(25, 5)});
+                var opts = {
+                    width: 200,
+                    title: markers[index].title,
+                    enableMessage: false
+                };
+                var infoWindow = new BMap.InfoWindow(markers[index].content, opts);
+                marker.setLabel(label);
+                addClickHandler(marker, infoWindow);
+                map.addOverlay(marker);
+            }
+            ;
+            var labels = [];
+            for (var index = 0; index < labels.length; index++) {
+                var opt = {position: new BMap.Point(labels[index].position.lng, labels[index].position.lat)};
+                var label = new BMap.Label(labels[index].content, opt);
+                map.addOverlay(label);
+            }
+            ;
+        }
+        //向地图添加控件
+        function addMapControl() {
+            var scaleControl = new BMap.ScaleControl({anchor: BMAP_ANCHOR_BOTTOM_LEFT});
+            scaleControl.setUnit(BMAP_UNIT_IMPERIAL);
+            map.addControl(scaleControl);
+            var navControl = new BMap.NavigationControl({
+                anchor: BMAP_ANCHOR_TOP_LEFT,
+                type: BMAP_NAVIGATION_CONTROL_LARGE
+            });
+            map.addControl(navControl);
+            var overviewControl = new BMap.OverviewMapControl({
+                anchor: BMAP_ANCHOR_BOTTOM_RIGHT,
+                isOpen: true
+            });
+            map.addControl(overviewControl);
+        }
+        var map;
+        initMap();
+    </script>
+{% endblock %}
+
+
+

@@ -1,0 +1,84 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block css %}
+    <link href="{% static 'css/news.css' %}" type="text/css" rel="stylesheet">
+{% endblock %}
+
+{% block news_nav %} class="banner-top-at" {% endblock %}
+
+{% block content %}
+    <div class="banner_img">
+        <img src="{% static 'img/news_title.jpg' %}">
+    </div>
+    <div class="content">
+        <div class="news_content">
+            <div class="left_content">
+                <div class="menu" style="">
+                    <div class="menu_title">
+                        <p class="menu_title_eng">NEWS</p>
+                        <p>新闻动态</p>
+                    </div>
+                    <div class="menu_list">
+                        <ul>
+                            <li id="s_7258"><a href="{% url 'news_list' %}" class="menu_li MFon">上锦新闻</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="right_content">
+                <div class="Rtitle_noBorder">
+                    <div>上锦新闻</div>
+                    <div class="bread"><a href="{% url 'index_view' %}">首页</a> > <a href="{% url 'news_list' %}">新闻动态</a> > 上锦新闻</div>
+                </div>
+                <div class="news_detail">
+                    <div class="art-description">
+                        <h3>{{news.title}}</h3>
+                        <p class="art-property"><span class="d_time">发布时间：{{news.publish_time|date:"Y-n-d"}} </span></p>
+                        <div class="art-detail">{{news.content|safe}}</div>
+                    </div>
+                    <div class="bdsharebuttonbox">
+                        <a href="#" class="bds_more" data-cmd="more"></a>
+                        <a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a>
+                        <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+                        <a href="#" class="bds_douban" data-cmd="douban" title="分享到豆瓣网"></a>
+                        <a href="#" class="bds_tqq" data-cmd="tqq" title="分享到腾讯微博"></a>
+                        <a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+                    </div>
+
+                    <div class="art-next">
+                        <p>上一篇：
+                            {% if before_news %}
+                            <a href="{% url 'news_detail' before_news.id %}">{{ before_news.title }}</a>
+                            {% else %}
+                            <span style="color: #999999">没有上一篇</span>
+                            {% endif %}
+                        </p>
+                        <p>下一篇：
+                            {% if next_news %}
+                            <a href="{% url 'news_detail' next_news.id %}">{{ next_news.title }}</a>
+                            {% else %}
+                            <span style="color: #999999;">没有下一篇</span>
+                            {% endif %}
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block last %}
+<script>
+    window._bd_share_config= {
+        "common":{"bdSnsKey":{},"bdText":"","bdMini":"2",
+            "bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"16"}, "share":{}};
+    with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).
+            src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='
+            +~(-new Date()/36e5)];
+</script>
+{% endblock %}
+
+
+

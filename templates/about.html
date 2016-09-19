@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block css %}
+    <link href="{% static 'css/about.css' %}" type="text/css" rel="stylesheet">
+{% endblock %}
+
+{% block about_nav %} style="color: grey;" {% endblock %}
+
+{% block content %}
+    <div class="banner_img">
+        <img src="{% static 'img/about.png' %}">
+    </div>
+    <div class="content">
+        <div class="news_content">
+            <div class="left_content">
+                <div class="menu" style="">
+                    <div class="menu_title">
+                        <p class="menu_title_eng">About</p>
+                        <p>关于我们</p>
+                    </div>
+                    <div class="menu_list">
+                        <ul>
+                            <li><a href="{% url 'about_us' %}" class="menu_li active">上锦简介</a></li>
+                            <li><a href="{% url 'structure' %}" class="menu_li">组织架构</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="right_content">
+                <div class="Rtitle_noBorder">
+                    <div>上锦简介</div>
+                    <div class="bread"><a href="{% url 'index_view' %}">首页</a> > <a href="{% url 'about_us' %}">关于我们</a> > 上锦简介</div>
+                </div>
+                <div class="about_us">
+                    {{about.content|safe}}
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+
+

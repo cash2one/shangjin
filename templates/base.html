@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=0.8, maximum-scale=0.8, user-scalable=no">
+    <meta name="keywords" content="上锦资产 房地产 置业 商品房 房产代理 住宅 酒店式公寓">
+    <meta name="description" content="上锦资产管理有限公司（简称：上锦资产）以置地顾问、全案策略、营销代理等覆盖房地产产流通领域的全加之链经营体系，已形成了集地块研究、投资分析、市场研究建筑规划、产品策划、营销策划、商业招商、销售代理、广告推广、资源整合等地产综合服务。">
+    <meta name="generator" content="上锦资产">
+
+    {% block title %}
+        <title>上锦资产</title>
+    {% endblock %}
+    <link href="{% static 'css/base.css' %}" type="text/css" rel="stylesheet">
+    {% block css %}
+    {% endblock %}
+    <script src="{% static 'js/jquery.js' %}" type="text/javascript"></script>
+    <script src="{% static 'js/common.js' %}" type="text/javascript"></script>
+    {% block js %}
+    {% endblock %}
+</head>
+
+<body>
+    {% block header %}
+        <div class="head" id="header">
+            <div class="header_top">
+                <div class="logo">
+                    <a href="{% url 'index_view' %}">
+                        <img src="{% static 'img/syzgjgdc.png' %}" style="height: 60px;width: 167px;">
+                    </a>
+                </div>
+            </div>
+            <div class="navbody">
+                <div class="nav">
+                    <ul class="nav_ul">
+                        <li class="nav_li">
+                            <a {% block index_nav %} {% endblock %} href="{% url 'index_view' %}" title="首页">首页</a>
+                        </li>
+                        <li class="nav_li">
+                            <a {% block news_nav %} {% endblock %} href="{% url 'news_list' %}">新闻动态</a>
+                        </li>
+                        <li class="nav_li">
+                            <a {% block project_nav %} {% endblock %} href="{% url 'project_list' %}">上锦出品</a>
+                        </li>
+                        <li class="nav_li">
+                            <a class="on" {% block about_nav %} {% endblock %}  href="{% url 'about_us' %}">关于我们</a>
+                            <div class="subnav sub-ul01">
+                                <ul>
+                                    <li><a href="{% url 'about_us' %}">上锦简介</a></li>
+                                    <li><a href="{% url 'structure' %}">组织架构</a></li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li class="nav_li">
+                            <a class="on" {% block join_nav %} {% endblock %} href="{% url 'talent_concept' %}">加入上锦</a>
+                            <div class="subnav sub-ul02">
+                                <ul>
+                                    <li><a href="{% url 'talent_concept' %}">人才理念</a></li>
+                                    <li><a href="{% url 'join_us' %}">招聘信息</a></li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li class="nav_li">
+                            <a {% block contact_nav %} {% endblock %} href="{% url 'contact_us' %}">联系我们</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="subnavbg"></div>
+            </div>
+        </div>
+    {% endblock %}
+
+    {% block content %}
+    {% endblock %}
+
+    {% block foot %}
+        <div class="Index_foot">
+            <p>
+                <a href="{% url 'about_us' %}">关于上锦</a><span class="mlr10">|</span>
+                <a href="{% url 'contact_us' %}">联系方式</a><span class="mlr10">| </span>
+                <a href="{% url 'disclaimer' %}">免责申明</a><span class="mlr10">|</span>
+                <a href="{% url 'privacy' %}">隐私条款</a><span class="mlr10" style="display:none;"></span>
+            </p>
+            <p>Copyright 上锦资产管理有限公司 苏ICP备16015443号 </p>
+            <script type="text/javascript">
+                var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+                document.write(unescape("%3Cspan id='cnzz_stat_icon_1260306875'%3E%3C/span%3E%3Cscript src='" +
+                        cnzz_protocol + "s4.cnzz.com/z_stat.php%3Fid%3D1260306875%26show%3Dpic' type='text/javascript'%3E%3C/script%3E"));
+            </script>
+        </div>
+
+    {% endblock %}
+
+    {% block last %}
+    {% endblock %}
+</body>
+</html>

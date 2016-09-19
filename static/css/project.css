@@ -1,0 +1,233 @@
+.banner_img {height: 320px;min-width: 1000px;width: 100%;position: fixed; top:0}
+.banner_img img {left: 50%;position: absolute;top: 0; height: 320px;max-width:1940px;margin-left:-1020px;}
+
+.content {
+    background: none repeat scroll 0 0 #fff;
+    margin-top: 320px;
+    width: 100%;
+    z-index: 999;
+    position: relative;
+}
+
+.project_content {
+    width: 1000px;
+    position: relative;
+    margin: 0 auto;
+    min-height: 800px;
+    padding: 30px 0 100px 0;
+    background: url(../img/main_bg.jpg) no-repeat 184px top;
+}
+
+.left_content {
+    width: 184px;
+    float: left;
+}
+
+.right_content {
+    width: 788px;
+    float: right;
+}
+
+.Lmain, .menu, .menu_title, .menu_list {
+    width: 184px;
+    overflow: hidden;
+}
+
+.menu_title {
+    height: 65px;
+    line-height: 1;
+    font-size: 24px;
+    color: #333;
+    background: url(../img/menu_title.jpg) no-repeat bottom;
+    margin-bottom: 10px;
+}
+
+.menu_li.MFon {
+    color: #ff9900;
+}
+
+.menu_list li {
+    width: 184px;
+    padding: 15px 0 15px 0;
+    border-bottom: 1px solid #ededee;
+    overflow: hidden;
+}
+
+.menu_list li .menu_li {
+    width: 170px;
+    display: block;
+    padding-left: 14px;
+    font-size: 14px;
+}
+
+li .menu_li.MFon {
+    color: #6d5c55;
+    font-weight: bold;
+    background: url(../img/menu_li_on.jpg) no-repeat 150px center;
+}
+
+.Rtitle_noBorder {
+    height: 55px;
+    padding-top: 10px;
+    font-size: 24px;
+    color: #ff9900;
+    border-bottom: 1px solid #eaeaea;
+}
+
+.right_content .bread {
+    padding-top: 5px;
+    font-size: 13px;
+    font-weight: normal;
+    color: #999999;
+    overflow: hidden;
+    float: right;
+}
+
+.right_content .project_list {
+    margin: 30px auto 20px;
+    width: 788px;
+    overflow: hidden;
+}
+
+.project_list .project_item {
+    width: 240px;
+    height: 301px;
+    float: left;
+    margin-right: 22px;
+    margin-bottom: 30px;
+    overflow: hidden;
+    border-radius: 5px 5px 0 0;
+    -moz-border-radius: 5px 5px 0 0;
+}
+
+.cp_li_con {
+    width: 217px;
+    height: 126px;
+    padding: 10px 8px 5px 12px;
+    overflow: hidden;
+    float: left;
+    border-left: 1px solid #ededee;
+    border-right: 1px solid #ededee;
+    border-bottom: 1px solid #ededee;
+    border-radius: 0  0 5px 5px;
+    -moz-border-radius: 0 0 5px 5px;
+    -moz-box-shadow: 2px 1px 1px lightgrey; /* 老的 Firefox */
+    box-shadow: 2px 1px 1px lightgrey;
+}
+
+.project_list .cp_li_dt {
+    width: 212px;
+    height: 20px;
+    line-height: 20px;
+    font-size: 13px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 5px;
+    overflow: hidden;
+}
+
+.project_list .cp_li_tl {
+    width: 212px;
+    height: 15px;
+    line-height: 15px;
+    font-size: 12px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 5px;
+    overflow: hidden;
+    display: block;
+}
+
+.project_list .cp_li_more {
+    padding-top: 5px;
+}
+
+.project_list .cp_li_tt {
+    color: #808080;
+    height: 15px;
+    line-height: 15px;
+}
+
+.cp_li_img img{
+    width:240px;
+    height:150px;
+    overflow:hidden;
+    float: left;
+    border-radius: 5px 5px 2px 2px;
+    -moz-border-radius: 5px 5px 2px 2px;
+}
+
+
+/* 分页 */
+.content .btn{
+    width:254px;
+    height:28px;
+    float:right;
+    padding-right:20px;
+    padding-bottom:60px;
+    margin-top: 20px;
+}
+
+.content .pagination li {
+    width:27px;
+    height:31px;
+    float:left;
+    border:1px solid #D1DAE8;
+    cursor:pointer;
+    background-color: #ffffff;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+}
+
+.content .pagination li a{
+    width: 100%;
+    height: 100%;
+    display: block;
+    line-height:33px;
+    text-align:center;
+    color:#333;
+    text-decoration: none;
+}
+
+.btn ul li .active{
+    background-color: #333;
+    color:white;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+}
+
+.content .pagination li.no1,.main-bar-center .btn ul li.no7{
+    width:35px;
+}
+.content .pagination li.no1 a,.main-bar-center .btn ul li.no7 a{
+    display: block;
+    width:35px;
+}
+.content .pagination li.no4 a{
+    background-color:#333;
+    color:white;
+}
+.content .pagination li a:hover{
+    display: block;
+    background-color:#333;
+    color:white;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+}
+/* 分页end */
+
+/* 项目详情 */
+.proInfo{padding:0px 0 10px 10px;}
+.proInfo .lt{ margin-left:38px; width:635px;}
+.proInfo .rt{}
+.proInfo .rt h1{font-size:14px;font-weight:700;color:#d80d18;height:30px;line-height:30px;background:url("../img/border.gif") bottom repeat-x;}
+.proInfo .rt .con{padding-top:10px;line-height:20px;color:#666666;}
+.proInfo .big{height:376px;background:url("../img/loading.gif") center center no-repeat;overflow:hidden;}
+.proInfo .small{padding-top:20px;}
+.proInfo .small li{width:96px;height:63px;overflow:hidden;cursor:pointer;float:left;margin-right:5px;}
+.proInfo .small li img{display:block;border:3px solid #d8d8d8;}
+.proInfo .small li.current img{border:3px solid #d70d18;}
+/* 项目详情end */

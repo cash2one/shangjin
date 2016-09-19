@@ -1,0 +1,88 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block css %}
+    <link href="{% static 'css/index.css' %}" type="text/css" rel="stylesheet">
+{% endblock %}
+
+{% block js %}
+    <script src="{% static 'js/jquery.jcarousel.min.js' %}" type="text/javascript"></script>
+    <script src="{% static 'js/index.js' %}" type="text/javascript"></script>
+{% endblock %}
+
+{% block index_nav %}class='banner-top-at' {% endblock %}
+
+{% block content %}
+    <!-- /header -->
+    <div class="content">
+      <div class="banner">
+          <div class="pic" id="pic">
+              <ul>
+                  {% for obj in banner %}
+                    <li style="background: url({{obj.banner_img.url}}) center center no-repeat;"></li>
+                  {% endfor %}
+              </ul>
+          </div>
+          <div class="ben_perv" id="ben_perv"></div>
+          <div class="ben_next" id="ben_next"></div>
+          <div class="ben">
+              <div class="ben_main">
+                  <div class="ben_Text fr" id="ben_Text">
+                      <ul>
+                          {% for obj in banner %}
+                          <li>{{obj.title}}</li>
+                          {% endfor %}
+                      </ul>
+                  </div>
+                <div class="ben_li fl" id="ben">
+                    <ul>
+                        <li class="bCur"></li>
+                        <li class="bCur"></li>
+                        <li class="bCur"></li>
+                    </ul>
+                </div>
+              </div>
+          </div>
+      </div>
+
+      <div class="main">
+          <div class="news fl">
+              <div class="news_title" style="position:relative">
+                  <span style="color: #f5a11a;">上锦新闻</span>
+                  <a href="{% url 'news_list' %}" style="position:absolute;right:0px;top:8px;width:15px;height:15px;"></a>
+              </div>
+              <div class="news_main">
+                  <div class="news_list fr">
+                      <ul>
+                          {% for obj in news %}
+                          <li><a href="{% url 'news_detail' obj.id %}"><span class="news_title_1">{{obj.title}}</span><span class="news_title_2">{{obj.publish_time|date:'Y-n-d'}}</span></a></li>
+                          {% endfor %}
+                      </ul>
+                  </div>
+              </div>
+          </div>
+
+          <div class="qrcode">
+              <p>关注企业微信 获取更多新鲜资讯</p>
+              <div class="qrcode content"><img src="{% static 'img/qrcode.jpg' %}"></div>
+          </div>
+
+          <div class="gd_fc">
+            <p style="display: block;">上锦出品</p>
+            <div class="img_list" id="jcarousel">
+                <ul class="jcarousel-skin-tango">
+                    {% for obj in project %}
+                    <li class="jcarousel-item">
+                        <a href="{% url 'project_detail' obj.id %}"><img width="150" height="95" src="{{obj.show_img.url}}"></a>
+                        <p><a href="{% url 'project_detail' obj.id %}">{{obj.name}}</a></p>
+                    </li>
+                    {% endfor %}
+                </ul>
+            </div>
+          </div>
+      </div>
+    </div>
+{% endblock %}
+
+
+

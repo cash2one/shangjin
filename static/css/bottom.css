@@ -1,0 +1,89 @@
+.content {
+    background: none repeat scroll 0 0 #fff;
+    margin-top: 80px;
+    width: 100%;
+    z-index: 999;
+    position: relative;
+}
+
+.news_content {
+    width: 980px;
+    position: relative;
+    margin: 0 auto;
+    min-height: 500px;
+    padding: 30px 0 100px 0;
+    background: url(../img/main_bg.jpg) no-repeat 184px top;
+}
+
+.left_content {
+    width: 184px;
+    float: left;
+}
+
+.right_content {
+    width: 748px;
+    float: right;
+}
+
+.Lmain, .menu, .menu_title, .menu_list {
+    width: 184px;
+    overflow: hidden;
+}
+
+.menu_title {
+    height: 65px;
+    line-height: 1;
+    font-size: 24px;
+    color: #333;
+    background: url(../img/menu_title.jpg) no-repeat bottom;
+    margin-bottom: 10px;
+}
+
+.menu_li.MFon {
+    color: #ff9900;
+}
+
+.menu_list li {
+    width: 184px;
+    padding: 15px 0 15px 0;
+    border-bottom: 1px solid #ededee;
+    overflow: hidden;
+}
+
+.menu_list li .menu_li {
+    width: 170px;
+    display: block;
+    padding-left: 14px;
+    font-size: 14px;
+    color: #6d5c55;
+    font-weight: bold;
+}
+
+.menu_list li .menu_li.active{
+    background: url(../img/menu_li_on.jpg) no-repeat 150px center;
+
+}
+
+.Rtitle_noBorder {
+    height: 55px;
+    padding: 12px 0;
+    font-size: 24px;
+    color: #ff9900;
+    border-bottom: 1px solid #ededee;
+}
+
+.right_content .bread {
+    padding-top: 5px;
+    font-size: 13px;
+    font-weight: normal;
+    color: #999999;
+    overflow: hidden;
+    float: right;
+}
+
+.right_content .bot p {
+    font-size: 15px;
+    font-weight: 500;
+    line-height: 28px;
+    margin-top: 30px;;
+}

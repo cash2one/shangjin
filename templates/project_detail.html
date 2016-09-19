@@ -1,0 +1,92 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block css %}
+<link href="{% static 'css/project.css' %}" type="text/css" rel="stylesheet">
+{% endblock %}
+
+{% block js %}
+    <script src="{% static 'js/jquery.jcarousel.min.js' %}" type="text/javascript"></script>
+    <script src="{% static 'js/index.js' %}" type="text/javascript"></script>
+    <script src="{% static 'js/proDetail.js' %}" type="text/javascript"></script>
+{% endblock %}
+
+{% block project_nav %} class='banner-top-at' {% endblock %}
+
+{% block content %}
+<div class="banner_img">
+    <img src="{% static 'img/sjcy.png' %}">
+</div>
+<div class="content">
+    <div class="project_content">
+        <div class="left_content">
+            <div class="menu" style="">
+                <div class="menu_title">
+                    <p class="menu_title_eng">PROJECT</p>
+                    <p>上锦出品</p>
+                </div>
+                <div class="menu_list">
+                    <ul>
+                        <li id="s_7258"><a href="{% url 'project_list' %}" class="menu_li MFon">上锦出品</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="right_content">
+            <div class="Rtitle_noBorder">
+                <div>上锦出品</div>
+                <div class="bread"><a href="{% url 'index_view' %}">首页</a> > 上锦出品</div>
+            </div>
+            <div class="project_list">
+                <div class="proInfo clearfix">
+                    <div class="rt">
+                        <h1><span id="txtTitle">{{project.name}}</span></h1>
+                        <div class="con"><p><strong></strong></p></div>
+                    </div>
+                </div>
+                <div class="proInfo clearfix">
+                    <div class="lt">
+                        <div class="big">
+                            <img src="{{first_img.big_img.url}}" width="635" height="376" alt="">
+                        </div>
+                        <div class="small">
+                            <div class="jcarousel-skin-tango">
+                                <ul>
+                                    {% for obj in pro_imgs %}
+                                    <li><img src="{{ obj.small_img.url }}"
+                                             bigimg="{{ obj.big_img.url }}" width="90" height="57"
+                                             border="0" alt=""></li>
+                                    {% endfor %}
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="proInfo clearfix">
+                    <div class="rt">
+                        <div class="con">
+                            {{project.content|safe}}
+                        </div>
+                    </div>
+                </div>
+                <div style="display:none" class="proInfo clearfix">
+                    <div class="rt">
+                        <h1>中锐星湖名邸</h1>
+                        <div class="con">
+                            <p><strong>户型介绍</strong></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="proUnit clearfix">
+                    <div class="con"></div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+{% endblock %}
+
+
+

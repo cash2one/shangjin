@@ -1,0 +1,109 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block css %}
+    <link href="{% static 'css/join.css' %}" type="text/css" rel="stylesheet">
+{% endblock %}
+
+{% block join_nav %} style="color: grey;" {% endblock %}
+
+{% block content %}
+    <div class="banner_img">
+        <img src="{% static 'img/f6e79d9850.png' %}">
+    </div>
+    <div class="content">
+        <div class="news_content">
+            <div class="left_content">
+                <div class="menu" style="">
+                    <div class="menu_title">
+                        <p class="menu_title_eng">JOIN</p>
+                        <p>加入上锦</p>
+                    </div>
+                    <div class="menu_list">
+                        <ul>
+                            <li><a href="{% url 'talent_concept' %}" class="menu_li">人才理念</a></li>
+                            <li><a href="{% url 'join_us' %}" class="menu_li active">招聘信息</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="right_content">
+                <div class="Rtitle_noBorder">
+                    <div>招聘信息</div>
+                    <div class="bread"><a href="{% url 'index_view' %}">首页</a> > <a href="{% url 'talent_concept' %}">加入上锦</a> > 招聘信息</div>
+                </div>
+                <div class="join_us">
+                    <div class="right">
+                        <div class="aboutCon">
+                            <table cellspacing="0" cellpadding="0" class="rc_tab" width="100%;">
+                                <tbody>
+                                <tr class="th">
+                                    <td class="dq">
+                                        职位名称
+                                    </td>
+                                    <td>
+                                        招聘人数
+                                    </td>
+                                    <td>地点</td>
+                                    <td>发布时间</td>
+                                    <td class="dy">操作</td>
+                                </tr>
+                                {% for obj in page_obj.object_list %}
+                                <tr>
+                                    <td class="dq">{{obj.title}}</td>
+                                    <td>
+                                        {{obj.amount}}人
+                                    </td>
+                                    <td>{{obj.address}}</td>
+                                    <td>
+                                        {{obj.publish_date}}
+                                    </td>
+                                    <td class="dy">
+                                        <a title="{{obj.title}}" href="{% url 'join_us_detail' obj.id %}">查看该职位</a>
+                                    </td>
+                                </tr>
+                                {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="btn">
+                    <ul class="pagination">
+                        <li>
+                            <a class="paginator-previous" href="
+                                {% if page_obj.has_previous %}
+                                    {% url 'join_us_list' page_obj.previous_page_number %}
+                                {% else %}
+                                    javascript:;
+                                {% endif %}
+                            "><<</a>
+                        </li>
+                        {% for obj in page_obj.range_list %}
+                            <li>
+                            {% if obj == page_obj.number %}
+                                <a href="javascript:;" class="active">{{ obj }}</a>
+                            {% else %}
+                                <a href="{% url 'join_us_list' obj %}">{{ obj }}</a>
+                            {% endif %}</li>
+                        {% endfor %}
+                        <li>
+                            <a href="
+                                {% if page_obj.has_next %}
+                                    {% url 'join_us_list' page_obj.next_page_number %}
+                                {% else %}
+                                    javascript:;
+                                {% endif %}
+                            ">>></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+
+

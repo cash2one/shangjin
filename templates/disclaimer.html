@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block css %}
+    <link href="{% static 'css/bottom.css' %}" type="text/css" rel="stylesheet">
+{% endblock %}
+
+{% block js %}
+
+{% endblock %}
+
+{% block content %}
+    <div class="content">
+        <div class="news_content">
+            <div class="left_content">
+                <div class="menu" style="">
+                    <div class="menu_title">
+                        <p class="menu_title_eng">DECLARE</p>
+                        <p>申明</p>
+                    </div>
+                    <div class="menu_list">
+                        <ul>
+                            <li><a href="{% url 'disclaimer' %}" class="menu_li active">免责申明</a></li>
+                            <li><a href="{% url 'privacy' %}" class="menu_li">隐私条款</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="right_content">
+                <div class="Rtitle_noBorder">
+                    <div>网站申明</div>
+                    <div class="bread"><a href="{% url 'index_view' %}">首页</a> > 免责申明</div>
+                </div>
+                <div class="bot">
+                    <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;本网站所载内容由上锦资产管理有限公司根据所知的最新资料编写。
+                        本公司相信，就公司所知， 网站所发放的一切资料均属可靠，但并不保证其准确性。
+                        上锦资产管理有限公司及本网站所陈述的公司及个人，无须为本网站所载的任何错漏负责，并保留权利做出修改而无须事先通知。
+                        上述人士无须对本网站或其所载资料的使用或提述负责，亦无须就任何由本网站或其所载资料引起的或与之有关的损失承担责任。
+                        本网站的使用者不应将本网站的任何资料视作忠告或建议，亦不应依赖本网站所载资料作任何用途。</p>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
